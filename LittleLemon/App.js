@@ -10,6 +10,8 @@ import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import LoginScreen from './LoginScreen';
 import WelcomeScreen from './WelcomeScreen';
+import MenuScreen from './MenuScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +19,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+
+      {/* Stack navigation for Login and Welcome */}
       <Stack.Navigator
         screenOptions={{ headerStyle : {backgroundColor : '#EE9972'}}}>
 
@@ -27,8 +31,8 @@ export default function App() {
 
         <Stack.Screen name = "Welcome" component={WelcomeScreen} />
 
-
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 }

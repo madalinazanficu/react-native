@@ -48,8 +48,6 @@ export default function WelcomeScreen() {
           to hear more about your experience with us!
         </Text>
 
-        
-
       </ScrollView>
   );
 }

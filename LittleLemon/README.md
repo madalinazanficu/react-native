@@ -7,3 +7,5 @@
     - npx expo install react-native-screens react-native-safe-area-context
 
 3. Configure native stack navigator: npm install @react-navigation/native-stack
+
+4. Install tab navigator: npm install @react-navigation/bottom-tabs
