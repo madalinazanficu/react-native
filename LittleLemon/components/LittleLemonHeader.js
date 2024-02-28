@@ -5,8 +5,8 @@ export default function LittleLemonHeader() {
   return (
     <View style={headerStyles.container}>
       <Text style={headerStyles.headerText}>
-	  Welcome to
-        <Text style={headerStyles.innerText}> Little Lemon</Text>
+           Little
+        <Text style={headerStyles.innerText}> Lemon</Text>
       </Text>
     </View>
   );
@@ -21,6 +21,8 @@ const headerStyles = StyleSheet.create({
     fontSize: 30,
     color: 'black',
     textAlign: 'center',
+    marginTop :30,
+  
   },
   innerText: {
     fontWeight: 'bold',

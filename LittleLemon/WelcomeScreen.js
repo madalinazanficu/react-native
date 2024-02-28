@@ -8,6 +8,8 @@ import {
   TextInput, 
   KeyboardAvoidingView, 
   Platform,
+  Image,
+  useColorScheme,
 } from 'react-native';
 
 
@@ -16,57 +18,62 @@ export default function WelcomeScreen() {
   const [lastName, onChangedLastName] = useState('');
   const [message, onChangedMessage] = useState('');
 
+  const colorScheme = useColorScheme('');
+
   return (
-    <KeyboardAvoidingView
-      style = {styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-
-      <ScrollView 
+      <ScrollView
+        style = {[styles.container,
+                  colorScheme == 'light' ? {backgroundColor : 'white'} : {backgroundColor : '#333333'}]}
         keyboardDismissMode='on-drag'>
+        
+        <View style = {styles.headerContainer}>
+          <Image
+            source = {require("./img/LittleLemonLogo.png")}
+            style = {styles.image}
+            resizeMode="contain"
+            accessible={true}
+            accessibilityLabel={'Little Lemon Logo'}>
 
-        <Text style={styles.title}> Welcome to Little Lemon </Text>
+          </Image>
+          <Text style={styles.title}> Little Lemon </Text>
+        </View>
 
-        <Text style={styles.textVal}>
+      
+
+        <Text style={[styles.textVal,
+                     colorScheme == 'light' ? {color : 'black'} : {color : '#EDEFEE',}]}>
+
           Little Lemon is a charming neighborhood bistro that serves simple food
           and classic cocktails in a lively but casual environment. We would love
           to hear more about your experience with us!
         </Text>
 
-        <TextInput
-          style = {styles.inputBox}
-          onChangeText = {onChangedFirstName}
-          value = {firstName}
-          placeholder="FirstName"
-           />
-
-        <TextInput
-          style = {styles.inputBox}
-          onChangeText = {onChangedMessage}
-          value = {message}
-          placeholder="Last name"/>
-
-        <TextInput
-          style = {styles.inputBox}
-          onChangeText = {onChangedLastName}
-          value = {lastName}
-          placeholder="Please leave feedback"
-          multiline={true} />
+        
 
       </ScrollView>
-    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333333',
-    marginVertical : 20
+    // backgroundColor: '#333333',
+    marginVertical : 20,
   },
+
+  headerContainer : {
+    flexDirection : 'row',
+    justifyContent : 'center',
+    margin : 10,
+  },
+
   title: {
-    padding: 40,
-    fontSize: 50,
-    color: 'white',
+    paddingRight: 10,
+    paddingLeft: 20,
+    paddingTop: 30,
+    paddingBottom: 10,
+    fontSize: 30,
+    color: 'green',
     textAlign: 'center',
   },
   textVal: {
@@ -84,4 +91,10 @@ const styles = StyleSheet.create({
     fontSize : 16,
 
   },
+
+  image : {
+    height : 100,
+    width: 100,
+  }
+
 });

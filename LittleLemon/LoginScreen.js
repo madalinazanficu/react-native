@@ -12,7 +12,7 @@ import {
     Pressable,
 } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen( {navigation} ) {
   const [email, onChangeEmail] = useState('')
   const [password, onChangePassword] = useState('')
 
@@ -52,7 +52,7 @@ export default function LoginScreen() {
 
           <Pressable
             style = {styles.loginButton}
-            onPress = {() => onLogin(!loggedIn)}>
+            onPress = {() => navigation.navigate('Welcome')}>
 
             <Text style = {styles.textButton}> Log in </Text>
 
@@ -71,14 +71,14 @@ const styles = StyleSheet.create({
   headerText: {
     padding: 40,
     fontSize: 30,
-    color: '#EDEFEE',
+    color: 'black',
     textAlign: 'center',
   },
   regularText: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: '#EDEFEE',
+    color: 'black',
     textAlign: 'center',
   },
 
